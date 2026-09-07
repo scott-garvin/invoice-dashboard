@@ -41,7 +41,8 @@ function onStatus(id: string, e: Event) {
     </div>
 
     <div class="card">
-      <table>
+      <div class="table-wrap">
+        <table>
         <thead>
           <tr>
             <th>Invoice</th>
@@ -75,7 +76,8 @@ function onStatus(id: string, e: Event) {
             <td colspan="7" class="empty">No invoices match your filter.</td>
           </tr>
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
   </div>
 </template>
@@ -95,6 +97,7 @@ function onStatus(id: string, e: Event) {
 }
 .filters {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -123,6 +126,9 @@ function onStatus(id: string, e: Event) {
   display: flex;
   gap: 10px;
   align-items: center;
+  flex: 1;
+  min-width: 0;
+  justify-content: flex-end;
 }
 .search {
   font: inherit;
@@ -131,16 +137,21 @@ function onStatus(id: string, e: Event) {
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
   background: var(--surface);
-  width: 240px;
-  max-width: 46vw;
+  flex: 1 1 200px;
+  min-width: 0;
+  max-width: 340px;
 }
 .search:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-soft);
 }
+.table-wrap {
+  overflow-x: auto;
+}
 table {
   width: 100%;
+  min-width: 660px;
   border-collapse: collapse;
 }
 th {

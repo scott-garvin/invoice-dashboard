@@ -129,4 +129,9 @@ const recent = computed(() => state.invoices.slice(0, 6));
     grid-template-columns: 1fr;
   }
 }
+@media (max-width: 560px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
 </style>

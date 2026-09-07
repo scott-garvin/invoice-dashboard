@@ -42,6 +42,8 @@ main {
 .content {
   padding: 28px;
   overflow-y: auto;
+  overflow-x: hidden;
+  min-width: 0;
   flex: 1;
 }
 @media (max-width: 720px) {
