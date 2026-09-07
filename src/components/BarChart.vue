@@ -22,7 +22,8 @@ const max = computed(() => Math.max(1, ...props.data.map((d) => d.cents)));
   display: flex;
   align-items: flex-end;
   gap: 14px;
-  height: 180px;
+  height: 100%;
+  min-height: 180px;
   padding-top: 8px;
 }
 .col {

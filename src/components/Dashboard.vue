@@ -28,7 +28,9 @@ const recent = computed(() => state.invoices.slice(0, 6));
           <h3>Revenue collected</h3>
           <span class="muted">last 6 months</span>
         </div>
-        <BarChart :data="revenueByMonth" />
+        <div class="chart-fill">
+          <BarChart :data="revenueByMonth" />
+        </div>
       </div>
 
       <div class="card recent">
@@ -69,6 +71,14 @@ const recent = computed(() => state.invoices.slice(0, 6));
 .chart-card,
 .recent {
   padding: 20px;
+}
+.chart-card {
+  display: flex;
+  flex-direction: column;
+}
+.chart-fill {
+  flex: 1;
+  min-height: 180px;
 }
 .card-head {
   display: flex;
