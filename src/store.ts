@@ -23,7 +23,7 @@ interface Persisted {
   invoices: Invoice[];
 }
 
-const KEY = 'ledgerly.v1';
+const KEY = 'ledgerly.v2';
 
 function iso(d: Date): string {
   return d.toISOString().slice(0, 10);
@@ -57,8 +57,8 @@ function seedInvoices(): Invoice[] {
     ['c5', 480.25, 'paid', 96, 15],
     ['c2', 5400, 'paid', 92, 30],
     ['c6', 12250, 'paid', 74, 45],
-    ['c3', 8100, 'paid', 63, 30],
-    ['c4', 1520, 'paid', 41, 15],
+    ['c3', 8100, 'paid', 4, 30],
+    ['c4', 1520, 'paid', 6, 15],
     ['c1', 3600, 'sent', 20, 30],
     ['c2', 2750, 'sent', 14, 30],
     ['c6', 15400, 'sent', 9, 45],
