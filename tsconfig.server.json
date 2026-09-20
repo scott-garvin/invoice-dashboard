@@ -9,5 +9,5 @@
     "outDir": "build",
     "rootDir": "."
   },
-  "include": ["server/**/*.ts", "shared/**/*.ts"]
+  "include": ["server/**/*.ts", "shared/**/*.ts", "mcp/**/*.ts"]
 }
