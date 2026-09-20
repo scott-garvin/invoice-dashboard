@@ -16,7 +16,7 @@ jobs:
           POSTGRES_USER: ledgerly
           POSTGRES_PASSWORD: test-only
         ports: ["5432:5432"]
-        options: --health-cmd 'pg_isready -U ledgerly' --health-interval 5s --health-retries 10
+        options: --health-cmd "pg_isready -U ledgerly" --health-interval 5s --health-retries 10
     env:
       TEST_DATABASE_URL: postgresql://ledgerly:test-only@127.0.0.1:5432/ledgerly_test
     steps:
