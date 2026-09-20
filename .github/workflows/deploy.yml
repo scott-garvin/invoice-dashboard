@@ -30,7 +30,7 @@ jobs:
         env:
           VITE_BASE_PATH: /invoice-dashboard/
           VITE_LIVE_DEMO_URL: https://ledgerly-production-afee.up.railway.app
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
