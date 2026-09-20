@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "ledgerly": {
+      "command": "node",
+      "args": ["C:/absolute/path/to/invoice-dashboard/build/mcp/index.js"],
+      "env": {
+        "MCP_MODE": "sample"
+      }
+    }
+  }
+}

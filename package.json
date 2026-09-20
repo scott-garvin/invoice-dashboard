@@ -16,12 +16,15 @@
     "test:e2e": "playwright test",
     "dev:api": "tsx watch server/index.ts",
     "build:server": "tsc -p tsconfig.server.json && node scripts/copy-schema.mjs",
-    "start": "node build/server/index.js"
+    "start": "node build/server/index.js",
+    "mcp": "tsx mcp/index.ts",
+    "mcp:demo": "tsx mcp/demo.ts"
   },
   "dependencies": {
     "@langchain/langgraph": "^1.4.16",
     "@langchain/langgraph-checkpoint-postgres": "^1.0.5",
     "@lucide/vue": "^1.47.0",
+    "@modelcontextprotocol/sdk": "^1.30.0",
     "dotenv": "^18.0.1",
     "express": "^5.2.1",
     "pg": "^8.23.0",

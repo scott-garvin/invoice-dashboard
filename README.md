@@ -118,3 +118,7 @@ MIT. See [LICENSE](LICENSE).
 The Docker service serves the frontend and API from the same HTTPS origin. Railway uses `/api/health`, one replica, and sleeping when idle. Provider and database credentials are runtime variables; no secrets enter the frontend bundle. GitHub Pages only builds sample mode and points its live-access link at Railway.
 
 Set `DATABASE_SCHEMA=ledgerly_app` and `MIGRATE_ON_START=false` for the hosted database. Run `node node_modules/tsx/dist/cli.mjs scripts/migrate.ts` separately under a migration role with the required schema privileges before deploying schema changes. The runtime role does not retain database-wide CREATE permission. Local development defaults to automatic migration. `server/certs/supabase-ca.crt` is Supabase's public root certificate, downloaded from the database settings page; it contains no private key. The hosted database URL uses `sslmode=verify-full` and `sslrootcert=server/certs/supabase-ca.crt`.
+
+## External assistant integration
+
+The [read-only MCP integration](mcp/README.md) exposes invoice lookup and code-calculated receivables summaries. Run `npm run mcp:demo` for a real MCP client/server exchange using fictional data, with no model key required. The guide includes assistant configuration, optional hosted API mode, tests, and explicit privacy and authorization limits.

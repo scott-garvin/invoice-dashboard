@@ -28,6 +28,7 @@ jobs:
       - run: npm ci
       - run: npm audit --audit-level=high
       - run: npm test
+      - run: npm run mcp:demo
       - run: npm run build && npm run build:server
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
