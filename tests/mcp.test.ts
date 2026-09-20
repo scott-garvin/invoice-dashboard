@@ -171,3 +171,23 @@ it("isolates independent MCP source bindings", async () => {
     data(await b.callTool({ name: "list_invoices", arguments: {} })).total,
   ).toBe(0);
 });
+
+it("rejects deceptive URLs rather than trusting a host substring", () => {
+  for (const url of [
+    "https://allowed.example.attacker.test",
+    "https://attacker.test/https://allowed.example",
+    "https://allowed.example@attacker.test",
+    "https://allowed.example/?redirect=attacker",
+  ]) {
+    expect(() =>
+      sourceFromEnv({
+        MCP_MODE: "live",
+        MCP_API_URL: url.replaceAll(
+          "https://allowed.example",
+          "https://ledgerly-production-afee.up.railway.app",
+        ),
+        MCP_DEMO_ACCESS_KEY: "k".repeat(32),
+      }),
+    ).toThrow();
+  }
+});

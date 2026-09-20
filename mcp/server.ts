@@ -45,6 +45,7 @@ function view(w: Workspace, i: Invoice, date: string) {
     due: i.due,
     status: status(i, date),
     currency: "USD",
+    amountUnit: "cents",
     ...totals(i),
   };
 }
