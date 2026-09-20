@@ -1,0 +1,40 @@
+name: Ledgerly checks
+on:
+  pull_request:
+  workflow_call:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_DB: ledgerly_test
+          POSTGRES_USER: ledgerly
+          POSTGRES_PASSWORD: test-only
+        ports: ["5432:5432"]
+        options: --health-cmd 'pg_isready -U ledgerly' --health-interval 5s --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgresql://ledgerly:test-only@127.0.0.1:5432/ledgerly_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm audit --audit-level=high
+      - run: npm test
+      - run: npm run build && npm run build:server
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - run: docker build -t ledgerly-check .
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: browser-diagnostics
+          path: test-results
+          retention-days: 7
