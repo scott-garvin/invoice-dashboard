@@ -1,22 +1,46 @@
 {
   "name": "invoice-dashboard",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
-  "description": "Ledgerly — a small invoicing dashboard demo (Vue 3 + Vite + TypeScript)",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "description": "Ledgerly invoicing workspace with a payment ledger and reviewed AI intake",
   "scripts": {
     "dev": "vite",
     "typecheck": "vue-tsc --noEmit",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview --port 4173"
+    "preview": "vite preview --port 4173",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "dev:api": "tsx watch server/index.ts",
+    "build:server": "tsc -p tsconfig.server.json && node scripts/copy-schema.mjs",
+    "start": "node build/server/index.js"
   },
   "dependencies": {
-    "vue": "^3.5.13"
+    "@langchain/langgraph": "^1.4.16",
+    "@langchain/langgraph-checkpoint-postgres": "^1.0.5",
+    "@lucide/vue": "^1.47.0",
+    "dotenv": "^18.0.1",
+    "express": "^5.2.1",
+    "pg": "^8.23.0",
+    "vue": "^3.5.43",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.1",
-    "typescript": "^5.6.2",
-    "vite": "^6.0.7",
-    "vue-tsc": "^2.1.10"
+    "@playwright/test": "^1.63.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.2",
+    "@types/pg": "^8.23.1",
+    "@types/supertest": "^7.2.1",
+    "@vitejs/plugin-vue": "^6.0.9",
+    "prettier": "^3.9.8",
+    "supertest": "^7.2.2",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.0",
+    "vitest": "^4.1.11",
+    "vue-tsc": "^2.2.12"
   }
 }

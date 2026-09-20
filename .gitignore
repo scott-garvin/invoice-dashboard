@@ -5,3 +5,10 @@ dist-ssr/
 .DS_Store
 Thumbs.db
 .vscode/
+.env
+.env.*
+!.env.example
+build/
+test-results/
+playwright-report/
+coverage/
