@@ -21,11 +21,11 @@
     "mcp:demo": "tsx mcp/demo.ts"
   },
   "dependencies": {
-    "@langchain/langgraph": "^1.4.16",
+    "@langchain/langgraph": "^1.4.17",
     "@langchain/langgraph-checkpoint-postgres": "^1.0.5",
-    "@lucide/vue": "^1.47.0",
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "dotenv": "^18.0.1",
+    "@lucide/vue": "^1.48.0",
+    "@modelcontextprotocol/sdk": "^1.30.1",
+    "dotenv": "^18.0.3",
     "express": "^5.2.1",
     "pg": "^8.23.0",
     "vue": "^3.5.43",
@@ -38,12 +38,12 @@
     "@types/pg": "^8.23.1",
     "@types/supertest": "^7.2.1",
     "@vitejs/plugin-vue": "^6.0.9",
-    "prettier": "^3.9.8",
-    "supertest": "^7.2.2",
+    "prettier": "^3.9.9",
+    "supertest": "^7.3.0",
     "tsx": "^4.23.15",
-    "typescript": "^5.9.3",
-    "vite": "^8.3.0",
-    "vitest": "^4.1.11",
-    "vue-tsc": "^2.2.12"
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.1",
+    "vue-tsc": "^3.3.11"
   }
 }
